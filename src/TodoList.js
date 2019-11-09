@@ -14,6 +14,7 @@ class TodoList extends Component {
   }
 
   render(){
+    console.log(2)
     return (
       <Fragment>
         <input value={this.state.inputVal} type="text" onChange={this.handleChange} />

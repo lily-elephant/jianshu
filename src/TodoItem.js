@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types'
 
 class TodoItem extends Component{
   constructor(props){
@@ -8,6 +9,7 @@ class TodoItem extends Component{
 
   render(){
     const {content, deleteItem} = this.props;
+    console.log(1)
     return (
       <Fragment>
         {/*下面注释的写法也可行*/}
@@ -17,6 +19,7 @@ class TodoItem extends Component{
         </li>
         */}
         <li onClick={this.handleClick}>{content}</li>
+        <li>{this.props.test}</li>
       </Fragment>
     )
   }
@@ -27,4 +30,12 @@ class TodoItem extends Component{
   }
 }
 
+TodoItem.propTypes = {
+  content: PropTypes.string.isRequired,
+  index: PropTypes.number
+}
+
+TodoItem.defaultProps = {
+  test: '1'
+}
 export default TodoItem;
