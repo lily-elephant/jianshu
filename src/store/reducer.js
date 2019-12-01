@@ -3,6 +3,6 @@ const defaultState = {
   inputVal: ''
 }
 
-const demoReducer = (state = defaultState, action) => {
-
+export default (state = defaultState, action) => {
+  return state;
 }
