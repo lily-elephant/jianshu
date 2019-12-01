@@ -9,7 +9,7 @@ class TodoItem extends Component{
 
   render(){
     const {content, deleteItem} = this.props;
-    console.log(1)
+    console.log('子组件')
     return (
       <Fragment>
         {/*下面注释的写法也可行*/}
@@ -22,6 +22,10 @@ class TodoItem extends Component{
         <li>{this.props.test}</li>
       </Fragment>
     )
+  }
+  // 父组件更新，而子组件不更新时，可以return false
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return false
   }
 
   handleClick(){
