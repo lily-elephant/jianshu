@@ -22,6 +22,10 @@ class TodoItem extends Component{
       </Fragment>
     )
   }
+  // 父组件更新，而子组件不更新时，可以return false
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return false
+  }
 
   handleClick(){
     const { deleteItem, index } = this.props;
