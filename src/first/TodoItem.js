@@ -9,7 +9,6 @@ class TodoItem extends Component{
 
   render(){
     const {content, deleteItem} = this.props;
-    console.log(1)
     return (
       <Fragment>
         {/*下面注释的写法也可行*/}
@@ -19,7 +18,7 @@ class TodoItem extends Component{
         </li>
         */}
         <li onClick={this.handleClick}>{content}</li>
-        <li>{this.props.test}</li>
+        {/*<li>{this.props.test}</li>*/}
       </Fragment>
     )
   }

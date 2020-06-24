@@ -14,7 +14,6 @@ class TodoList extends Component {
   }
 
   render(){
-    console.log(2)
     return (
       <Fragment>
         <input value={this.state.inputVal} type="text" onChange={this.handleChange} />
@@ -36,6 +35,15 @@ class TodoList extends Component {
         </ul>
       </Fragment>
     )
+  }
+
+  componentDidMount(){
+    console.log('componentDidMount')
+  }
+
+  shouldComponentUpdate(){
+    return true
+    console.log('shouldComponentUpdate')
   }
 
   getTodoItem(){
@@ -66,7 +74,7 @@ class TodoList extends Component {
     // })
     this.setState((prevState) => ({
       inputVal: '',
-      list: [...prevState.list, prevState.inputVal]
+      list: [prevState.inputVal, ...prevState.list,]
     }))
   }
   handleDelete(index){
