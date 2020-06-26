@@ -1,3 +1,11 @@
+first文件夹和second文件夹内容是初始尝试
+third文件夹内容关于UI组件
+forth文件夹内容关于redux应用
+fifth文件夹内容关于redux-thunk应用
+sixth文件夹内容关于redux-saga应用
+seventh文件夹内容关于react-redux应用
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
