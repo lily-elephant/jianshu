@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import store from './store'
-import {getListAction} from "./store/actionCreators";
+import {changeInputAction, submitAction, deleteAction, getListAction} from "./store/actionCreators";
 
 class TodoList extends Component {
   constructor(props){
@@ -38,13 +38,16 @@ class TodoList extends Component {
     this.setState(store.getState())
   }
   handleChange(e){
-
+    const action = changeInputAction(e.target.value)
+    store.dispatch(action)
   }
   handleSubmit(){
-
+    const action = submitAction()
+    store.dispatch(action)
   }
   handleDelete(index){
-
+    const action = deleteAction(index)
+    store.dispatch(action)
   }
 }
 

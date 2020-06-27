@@ -1,7 +1,7 @@
 import {CHANGE_INPUT_VAL, ADD_ITEM, DELETE_ITEM} from "./actionTypes";
 
 const defaultState = {
-  inputVal: '',
+  inputVal: 'react-redux',
   list: []
 }
 export default (state = defaultState, action) => {
@@ -11,7 +11,7 @@ export default (state = defaultState, action) => {
       newState.inputVal = action.value
       return newState
     case ADD_ITEM:
-      newState.list.push(newState.inputVal)
+      newState.list.unshift(newState.inputVal)
       newState.inputVal = ''
       return newState
     case DELETE_ITEM:

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {CHANGE_INPUT_VAL, ADD_ITEM, DELETE_ITEM} from './store/actionTypes'
+import {changeInputAction, submitAction, deleteAction} from "./store/actionCreators";
 
 // class TodoList extends Component {
 //
@@ -46,23 +47,15 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleChange(e){
-      const action = {
-        type: CHANGE_INPUT_VAL,
-        value: e.target.value
-      }
+      const action = changeInputAction(e.target.value)
       dispatch(action)
     },
     handleSubmit(){
-      const action = {
-        type: ADD_ITEM
-      }
+      const action = submitAction()
       dispatch(action)
     },
     handleDelete(index){
-      const action = {
-        type: DELETE_ITEM,
-        index
-      }
+      const action = deleteAction(index)
       dispatch(action)
     },
 
