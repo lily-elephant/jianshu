@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {CHANGE_INPUT_VAL, ADD_ITEM, DELETE_ITEM} from './store/actionTypes'
-import {changeInputAction, submitAction, deleteAction} from "./store/actionCreators";
+import {changeInputAction, submitAction, deleteAction} from "./store/actionCreators"
 
 // class TodoList extends Component {
 //
