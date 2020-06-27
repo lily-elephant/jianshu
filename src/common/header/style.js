@@ -46,7 +46,7 @@ export const SearchWrapper = styled.div`
   float: left;
   position:relative;
   padding: 9px 0 0 20px;
-  .iconfont{
+  .zoom{
     position: absolute;
     right: 3px;
     top:13px;
@@ -94,6 +94,52 @@ export const SearchInput = styled.input.attrs({
     color: #999;
   }
 `
+export const SearchInfo = styled.div`
+  position: absolute;
+  top: 56px;
+  left: 20px;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  width: 240px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 3px;
+`
+
+export const SearchInfoTitle = styled.div`{
+  margin-bottom: 10px;
+  font-size: 14px;
+}`
+
+export const SearchInfoSwitch = styled.span`{
+  float: right;
+  color: #999;
+  font-size: 12px;
+  cursor: pointer;
+  .spin{
+    display: inline-block;
+    margin-right: 2px;
+    font-size: 12px;
+    transition: all .2s ease-in;
+    transform-origin: center center;
+  }
+}`
+
+export const SearchInfoList = styled.div`{
+  
+}`
+
+export const SearchInfoItem = styled.a`{
+  display: inline-block;
+  line-height: 20px;
+  padding: 0 5px;
+  margin: 0 10px 15px 0;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+}`
 
 export const Addition = styled.div`
   position: absolute;
