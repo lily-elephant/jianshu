@@ -21,7 +21,7 @@ import {
 class Header extends Component{
 
   render(){
-
+    let { list } = this.props
     return (
       <HeaderWrapper>
         <Logo/>
@@ -36,7 +36,7 @@ class Header extends Component{
             >
               <SearchInput
                 className={this.props.focus ? 'focused' : ''}
-                onFocus={this.props.slideUp}
+                onFocus={() => this.props.slideUp(list)}
                 onBlur={this.props.slideDown}>
               </SearchInput>
             </CSSTransition>
@@ -103,9 +103,11 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    slideUp() {
+    slideUp(list) {
+      if (list.length === 0){
+        dispatch(actionCreators.searchListAction())
+      }
       dispatch(actionCreators.searchFocusAction())
-      dispatch(actionCreators.searchListAction())
     },
     slideDown() {
       dispatch(actionCreators.searchBlurAction())
