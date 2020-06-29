@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {actionCreators} from '../store'
 import {
   ArticleWrapper,
@@ -18,14 +19,13 @@ class List extends Component {
             return (
               <ArticleItem key={index}>
                 <ArticleLeft className={item.get('imgUrl') ? '' : 'no-img'}>
-                  <h3 className="title">{item.get('title')}</h3>
+                  <Link to={'/detail/'+item.get('id')}><h3 className="title">{item.get('title')}</h3></Link>
                   <p className="desc">{item.get('desc')}</p>
                 </ArticleLeft>
                 <ArticleRight>
-                  <img
-                    className="pic"
-                    src={item.get('imgUrl')}
-                    alt=""/>
+                  <Link to={'/detail/'+item.get('id')}>
+                    <img className="pic" src={item.get('imgUrl')} alt=""/>
+                  </Link>
                 </ArticleRight>
               </ArticleItem>
             )

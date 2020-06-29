@@ -9,13 +9,11 @@ export const HeaderWrapper = styled.div`
   color: #444;
 `
 
-export const Logo = styled.a.attrs({
-  href: 'https://www.jianshu.com/'
-})`
+export const Logo = styled.span`
   position: absolute;
   left: 0;
   top: 0;
-  width:100px;
+  width: 100px;
   height: 56px;
   background: url(${logoPic});
   background-size: contain;

@@ -63,6 +63,9 @@ export const ArticleLeft = styled.div`
     margin: 0 0 4px;
     font-size: 18px;
     color: #333;
+    &:hover{
+      text-decoration: underline;
+    }
   }
   .desc{
     margin: 0 0 8px;
