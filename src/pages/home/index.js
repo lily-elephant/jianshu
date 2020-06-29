@@ -38,6 +38,9 @@ class Home extends Component {
   bindEvents(){
     window.addEventListener('scroll', this.props.handleScroll)
   }
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.props.handleScroll)
+  }
 }
 
 const mapState = (state) => ({
