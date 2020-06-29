@@ -119,3 +119,17 @@ export const RecommendItem = styled.a`
   background-size: contain;
   cursor: pointer;
 `
+
+export const BackTop = styled.div`
+  position: fixed;
+  right: 60px;
+  bottom: 60px;
+  line-height: 20px;
+  width: 44px;
+  height: 44px;
+  color: #999;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  cursor: pointer;
+`

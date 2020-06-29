@@ -5,7 +5,8 @@ const defaultState = fromJS({
   topicList: [],
   articleList: [],
   recommendList: [],
-  articlePage: 1
+  articlePage: 1,
+  showScroll: false
 })
 
 export default (state = defaultState, action) => {
@@ -19,7 +20,12 @@ export default (state = defaultState, action) => {
     case actionTypes.MORE_DATA:
       //immutable类型也有concat方法
       let oldData = state.get('articleList')
-      return state.set('articleList', oldData.concat(action.data)).set('articlePage', action.page)
+      return state.merge({
+        'articleList': oldData.concat(action.data),
+        'articlePage': action.page
+      })
+    case actionTypes.SHOW_SCROLL:
+      return state.set('showScroll', action.show)
     default:
       return state
   }

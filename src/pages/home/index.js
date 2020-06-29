@@ -7,7 +7,8 @@ import {actionCreators} from './store'
 import {
   HomeWrapper,
   HomeLeft,
-  HomeRight
+  HomeRight,
+  BackTop
 } from './style'
 
 
@@ -23,22 +24,37 @@ class Home extends Component {
         <HomeRight>
           <Recommend></Recommend>
         </HomeRight>
+        { this.props.showScroll ? <BackTop onClick={this.backTop}>to top</BackTop> : null}
       </HomeWrapper>
     )
   }
   componentDidMount(){
     this.props.getHomeData()
+    this.bindEvents()
+  }
+  backTop(){
+    window.scrollTo(0, 0)
+  }
+  bindEvents(){
+    window.addEventListener('scroll', this.props.handleScroll)
   }
 }
 
 const mapState = (state) => ({
-
+  showScroll: state.getIn(['home', 'showScroll'])
 })
 
 const mapDispatch = (dispatch) => ({
   getHomeData(){
     const action = actionCreators.getHomeAction()
     dispatch(action)
+  },
+  handleScroll(){
+    if (document.documentElement.scrollTop > 400){
+      dispatch(actionCreators.showScrollAction(true))
+    }else {
+      dispatch(actionCreators.showScrollAction(false))
+    }
   }
 })
 export default connect(mapState, mapDispatch)(Home)

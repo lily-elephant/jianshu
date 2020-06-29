@@ -18,6 +18,11 @@ export const getMoreListAction = (page) => {
   }
 }
 
+export const showScrollAction = (show) => ({
+  type: actionTypes.SHOW_SCROLL,
+  show
+})
+
 const getMoreList = (data, page) => ({
   type: actionTypes.MORE_DATA,
   data: fromJS(data),
