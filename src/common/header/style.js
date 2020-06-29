@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import logoPic from '../../statics/logo.png'
 
 export const HeaderWrapper = styled.div`
+  position: relative;
+  z-index: 1;
   background-color: #fff;
   border-bottom: 1px solid #f0f0f0;
   height: 56px;
@@ -26,12 +28,13 @@ export const Nav = styled.div`
   height: 56px;
 `
 
-export const NavItem = styled.a`
+export const NavItem = styled.span`
   display: block;
   float: left;
   height: 56px;
   line-height: 56px;
   padding: 0 15px;
+  color: #444;
   &.active{
     color: #ea6f5a;
   }

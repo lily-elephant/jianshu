@@ -3,6 +3,7 @@ import {CSSTransition} from 'react-transition-group'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {actionCreators} from "./store"
+import {actionCreators as loginCreators} from '../../pages/login/store'
 
 import {
   HeaderWrapper,
@@ -45,11 +46,14 @@ class Header extends Component{
             <i className={this.props.focus ? 'iconfont focused zoom' : 'iconfont zoom'}>&#xe650;</i>
             {this.getListArea(this.props.focus, this.props.mouseIn)}
           </SearchWrapper>
-          <NavItem className="right">登录</NavItem>
+          {
+            this.props.loginStatus ? <NavItem className="right" onClick={this.props.logout}>退出</NavItem> :
+              <Link to="/login"><NavItem className="right">登录</NavItem></Link>
+          }
           <NavItem className="right iconfont">&#xe636;</NavItem>
         </Nav>
         <Addition>
-          <Button className="reg">注 册</Button>
+          <Button className="reg">注册</Button>
           <Button className="writting"><i className="iconfont">&#xe6e5;</i> 写文章</Button>
         </Addition>
       </HeaderWrapper>
@@ -85,9 +89,7 @@ class Header extends Component{
       return null
     }
   }
-  componentDidMount(){
-    // this.props.slideUp()
-  }
+  componentDidMount(){}
 }
 
 //immutable 类型的数据不能通过点语法获取，使用get方法获取
@@ -101,6 +103,7 @@ const mapStateToProps = (state) => {
     mouseIn: state.getIn(['header', 'mouseIn']),
     page: state.getIn(['header', 'page']),
     totalPage: state.getIn(['header', 'totalPage']),
+    loginStatus: state.getIn(['login', 'loginStatus'])
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -134,6 +137,9 @@ const mapDispatchToProps = (dispatch) => {
       }else {
         dispatch(actionCreators.switchListAction(1))
       }
+    },
+    logout(){
+      dispatch(loginCreators.logoutAction())
     }
   }
 }
